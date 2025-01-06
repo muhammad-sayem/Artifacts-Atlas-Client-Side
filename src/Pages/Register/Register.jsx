@@ -4,6 +4,7 @@ import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Shared/SocialLogin";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -29,13 +30,13 @@ const Register = () => {
         console.log({ email, password });
 
         createUser(email, password)
-        .then(res => {
-            console.log(res.user);
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
-        
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
+
     }
 
     return (
@@ -60,6 +61,12 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+
+                                <div className="flex px-1 text-xs gap-x-1">
+                                    <p className="flex-grow-0"> Already have an account? </p>
+                                    <p className="flex-grow-0 underline"><Link to='/login'> Login </Link></p>
+                                </div>
+
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>

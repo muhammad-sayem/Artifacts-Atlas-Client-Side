@@ -3,12 +3,12 @@ import loginLottieData from "../../assets/Lottie/login.json";
 import { useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 import SocialLogin from "../../Shared/SocialLogin";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
 
-    const {loginUser} = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
     const location = useLocation();
     console.log('Inside login', location);
 
@@ -21,25 +21,25 @@ const Login = () => {
 
         const email = form.email.value;
         const password = form.password.value;
-        
-        console.log({email, password});
+
+        console.log({ email, password });
 
         loginUser(email, password)
-        .then(res => {
-            console.log(res.user);
-            // const user = {email: res.user.email}
+            .then(res => {
+                console.log(res.user);
+                // const user = {email: res.user.email}
 
-            // axios.post('http://localhost:5000/jwt', user, {
-            //     withCredentials: true 
-            // })
-            // .then(res => {
-            //     console.log(res.data);
-            // })
-            navigate(from);
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
+                // axios.post('http://localhost:5000/jwt', user, {
+                //     withCredentials: true 
+                // })
+                // .then(res => {
+                //     console.log(res.data);
+                // })
+                navigate(from);
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
     }
 
     return (
@@ -48,7 +48,7 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
 
-                    <Lottie animationData={loginLottieData}></Lottie>
+                        <Lottie animationData={loginLottieData}></Lottie>
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                         <h1 className=" text-center mt-4 text-5xl font-bold">Login now!</h1>
@@ -64,6 +64,12 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+
+                                <div className="flex px-1 text-xs gap-x-1">
+                                    <p className="flex-grow-0"> Don't have account? </p>
+                                    <p className="flex-grow-0 underline"><Link to='/register'> Register </Link></p>
+                                </div>
+
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
