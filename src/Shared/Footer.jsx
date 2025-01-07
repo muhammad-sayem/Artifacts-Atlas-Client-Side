@@ -4,7 +4,7 @@ import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="bg-black">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-24 w-10/12 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-24 w-11/12 mx-auto">
                 <div className="">
                     <h3 className="text-3xl font-bold mb-4 text-[#F19100]"> Historical Artifacts </h3>
                     <p className="text-white text-lg"> Preserving history, one artifact at a time. Explore the stories of ancient civilizations and timeless treasures. Connect with us to embark on a journey through the past, and uncover the legacy of humanity. </p>
