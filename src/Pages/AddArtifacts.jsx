@@ -1,10 +1,23 @@
 import React from 'react';
 import useAuth from '../Hooks/UseAuth';
+import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../Components/LoadingSpinner';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddArtifacts = () => {
-    const {user} = useAuth();
+    const { user, loading } = useAuth();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    if (loading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
+    if (!user) {
+        return <div> No user found </div>
+    }
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
         const form = e.target;
 
@@ -31,6 +44,21 @@ const AddArtifacts = () => {
         }
         console.log(formData);
 
+        try {
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-artifact`, formData);
+            form.reset();
+            Swal.fire({
+                title: "New Artifact Added Successfully!!",
+                icon: "success"
+            });
+            navigate('/artifacts');
+        }
+        catch (err) {
+            Swal.fire({
+                title: "Something went wrong!!",
+                icon: "error"
+            });
+        }
     }
 
     return (
