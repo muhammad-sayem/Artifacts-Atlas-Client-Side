@@ -1,11 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AiFillLike } from "react-icons/ai";
+import Swal from 'sweetalert2';
+import useAuth from '../Hooks/UseAuth';
 
 const ArtifactDetails = () => {
+    const {user} = useAuth();
     const { id } = useParams();
     const [artifact, setArtifact] = useState([]);
+    const navigate = useNavigate();
+
+    const { artifactName, artifactImage, artifactType, historicalContext, createdAt, discoveredAt, presentLocation, adderName, adderEmail } = artifact;
 
     useEffect(() => {
         fetchArtifactData();
@@ -14,6 +20,23 @@ const ArtifactDetails = () => {
     const fetchArtifactData = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifact/${id}`);
         setArtifact(data);
+    }
+
+    const handleLikedArtifact = async () => {
+        const likedData = { artifactName, artifactImage, artifactType, historicalContext, createdAt, discoveredAt, presentLocation, adderName, adderEmail, likedEmail: user.email}
+
+        try {
+            await axios.post(`${import.meta.env.VITE_API_URL}/add-like`, likedData);
+            Swal.fire({
+                title: "Added to the liked Artifacts",
+                icon: "success"
+            });
+            navigate('/artifacts')
+
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 
     console.log(artifact);
@@ -33,7 +56,10 @@ const ArtifactDetails = () => {
                     <p className='text-lg font-bold'> Added By (Email): {artifact.adderEmail} </p>
                     <p className='text-lg font-bold'> Likes: {artifact.likes} </p>
 
-                    <button className='mt-6 btn w-1/3 text-xl bg-[#F19100] font-bold'> <AiFillLike></AiFillLike> Like </button>
+                    {
+                        adderEmail === user.email ? <button disabled onClick={handleLikedArtifact} className='mt-6 btn w-1/3 text-xl bg-[#F19100] font-bold'> <AiFillLike></AiFillLike> Like </button>: 
+                        <button onClick={handleLikedArtifact} className='mt-6 btn w-1/3 text-xl bg-[#F19100] font-bold'> <AiFillLike></AiFillLike> Like </button>
+                    }
                 </div>
 
                 <div className='w-1/2 flex flex-col justify-center'>
