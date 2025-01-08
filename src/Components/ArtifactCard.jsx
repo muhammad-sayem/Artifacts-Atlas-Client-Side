@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArtifactCard = ({ artifact }) => {
-    const { artifactName, artifactImage, artifactType, historicalContext, createdAt, discoveredAt, presentLocation, adderName, adderEmail, likes } = artifact
+    const { _id, artifactName, artifactImage, artifactType, historicalContext, createdAt, discoveredAt, presentLocation, adderName, adderEmail, likes } = artifact
     return (
         <div className='border-2 mx-auto rounded-xl'>
             <div className="card bg-base-100 shadow-xl">
@@ -17,9 +18,9 @@ const ArtifactCard = ({ artifact }) => {
                     <p>{`${historicalContext.slice(0, 90)}...`}</p>
                     <p className='text-lg font-bold'> Present Location: {presentLocation} </p>
                     <p className='text-lg font-bold'> Likes: {likes} </p>
-                    <div className="card-actions">
+                    <Link to={`/details/${_id}`}>
                         <button className="btn bg-[#F19100] text-white text-md">View Details</button>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
