@@ -40,7 +40,8 @@ const AddArtifacts = () => {
             discoveredAt,
             presentLocation,
             adderName,
-            adderEmail
+            adderEmail,
+            likes: 0
         }
         console.log(formData);
 

@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="bg-black">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-24 w-11/12 mx-auto">
                 <div className="">
-                    <h3 className="text-3xl font-bold mb-4 text-[#F19100]"> Historical Artifacts </h3>
+                    <h3 className="text-3xl font-bold mb-4 text-[#F19100]">  Artifacts Atlas </h3>
                     <p className="text-white text-lg"> Preserving history, one artifact at a time. Explore the stories of ancient civilizations and timeless treasures. Connect with us to embark on a journey through the past, and uncover the legacy of humanity. </p>
                 </div>
 
@@ -40,7 +40,7 @@ const Footer = () => {
 
             <hr className="w-10/12 mx-auto border-t-2 border-[#F19100]" />
             <div>
-                <p className="text-center text-xl font-bold mt-5 pb-12 text-[#F19100]"> &#169; All rights reserved to Historical Artifacts Website 2024</p>
+                <p className="text-center text-xl font-bold mt-5 pb-12 text-[#F19100]"> &#169; All rights reserved to Articrafts Atlas 2024</p>
             </div>
         </div>
     );
