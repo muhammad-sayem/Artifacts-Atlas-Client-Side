@@ -57,9 +57,6 @@ const Navbar = () => {
                             <li>
                                 <Link to='/liked-artifacts'>Liked Artifacts</Link>
                             </li>
-                            <li>
-                                <Link to='/bid-requests'>Bid Requests</Link>
-                            </li>
                             <li className='mt-2'>
                                 <button
                                     onClick={signOutUser}
