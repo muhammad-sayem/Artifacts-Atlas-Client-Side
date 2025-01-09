@@ -14,12 +14,12 @@ const ArtifactCard = ({ artifact }) => {
                 </figure>
 
                 <div className="card-body p-5">
-                    <h2 className="card-title font-extrabold text-3xl "> {artifactName} </h2>
+                    <h2 className="card-title font-extrabold text-2xl "> {artifactName} </h2>
                     <p>{`${historicalContext.slice(0, 90)}...`}</p>
                     <p className='text-lg font-bold'> Present Location: {presentLocation} </p>
                     <p className='text-lg font-bold'> Likes: {likes} </p>
                     <Link to={`/details/${_id}`}>
-                        <button className="btn bg-[#F19100] text-white text-md">View Details</button>
+                        <button className="btn bg-[#F19100] text-lg font-bold text-md">View Details</button>
                     </Link>
                 </div>
             </div>

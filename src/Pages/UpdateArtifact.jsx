@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../Hooks/UseAuth';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const UpdateArtifact = () => {
     const { user } = useAuth();
@@ -16,7 +17,7 @@ const UpdateArtifact = () => {
     const fetchArtifactData = async () => {
         try {
             const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifact/${id}`);
-            setArtifact(data); 
+            setArtifact(data);
         } catch (error) {
             console.error("Error fetching artifact data:", error);
         }
@@ -30,13 +31,55 @@ const UpdateArtifact = () => {
         );
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+
+        const artifactName = form.artifactName.value;
+        const artifactImage = form.artifactImage.value;
+        const artifactType = form.artifactType.value;
+        const historicalContext = form.historicalContext.value;
+        const createdAt = form.createdAt.value;
+        const discoveredAt = form.discoveredAt.value;
+        const discoveredBy = form.discoveredBy.value;
+        const presentLocation = form.presentLocation.value;
+
+        const formData = {
+            artifactName,
+            artifactImage,
+            artifactType,
+            historicalContext,
+            createdAt,
+            discoveredAt,
+            discoveredBy,
+            presentLocation,
+        }
+        console.log(formData);
+
+        try {
+            await axios.put(`${import.meta.env.VITE_API_URL}/update/${id}`, formData);
+            form.reset();
+            Swal.fire({
+                title: "New Artifact Added Successfully!!",
+                icon: "success"
+            });
+            navigate('/artifacts');
+        }
+        catch (err) {
+            Swal.fire({
+                title: "Something went wrong!!",
+                icon: "error"
+            });
+        }
+    }
+
     return (
         <div className="bg-black py-16 my-8 w-10/12 mx-auto">
             <h2 className="text-4xl text-center text-[#F19100] font-bold mb-8">
                 Update {artifact.artifactName}
             </h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="w-4/5 mx-auto">
                     <div className="grid md:grid-cols-2 gap-x-4">
                         <div className="mb-6">
@@ -69,7 +112,7 @@ const UpdateArtifact = () => {
                                 name="artifactType"
                                 id="category"
                                 className="border p-2 rounded-md w-full"
-                                defaultValue={artifact.artifactType} 
+                                defaultValue={artifact.artifactType}
                             >
                                 <option value="Tools">Tools</option>
                                 <option value="Weapons">Weapons</option>

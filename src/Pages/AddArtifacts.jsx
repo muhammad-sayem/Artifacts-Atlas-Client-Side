@@ -54,7 +54,7 @@ const AddArtifacts = () => {
                 title: "New Artifact Added Successfully!!",
                 icon: "success"
             });
-            navigate('/artifacts');
+            navigate('/my-artifacts');
         }
         catch (err) {
             Swal.fire({

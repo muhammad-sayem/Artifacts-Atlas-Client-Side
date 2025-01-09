@@ -3,19 +3,26 @@ import { useEffect, useState } from "react";
 import useAuth from "../Hooks/UseAuth";
 import MyArtifactCard from "../Components/MyArtifactCard";
 import sorryImage from "../assets/images/sorry.png"
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 
 const MyArtifacts = () => {
     const { user } = useAuth();
     const [myArtifacts, SetMyArtifacts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchAllArtifacts();
+        fetchAllMyArtifacts();
     }, [user]);
 
-    const fetchAllArtifacts = async () => {
+    const fetchAllMyArtifacts = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifacts/${user.email}`);
         SetMyArtifacts(data);
+        setLoading(false);
+    }
+
+    if(loading){
+        return <LoadingSpinner></LoadingSpinner>
     }
 
     return (
@@ -27,6 +34,7 @@ const MyArtifacts = () => {
                             myArtifacts.map(artifact => <MyArtifactCard
                                 key={artifact._id}
                                 artifact={artifact}
+                                fetchAllMyArtifacts={fetchAllMyArtifacts}
                             ></MyArtifactCard>)
                         }
                     </div>

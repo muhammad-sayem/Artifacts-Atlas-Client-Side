@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import useAuth from '../Hooks/UseAuth';
 import sorryImage from "../assets/images/sorry.png";
 import ArtifactCard from '../Components/ArtifactCard';
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 const LikedArtifacts = () => {
-    const { user, loading, setLoading } = useAuth();
+    const { user} = useAuth();
     const [likedArtifacts, SetLikedArtifacts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchAllLikedArtifacts();
@@ -15,10 +17,15 @@ const LikedArtifacts = () => {
     const fetchAllLikedArtifacts = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/liked-artifacts/${user.email}`);
         SetLikedArtifacts(data);
+        setLoading(false);
+    }
+
+    if(loading){
+        return <LoadingSpinner></LoadingSpinner>
     }
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto my-12'>
             {
                 likedArtifacts.length !== 0 ?
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
