@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../Hooks/UseAuth";
-import ArtifactCard from "../Components/ArtifactCard";
+import MyArtifactCard from "../Components/MyArtifactCard";
+import sorryImage from "../assets/images/sorry.png"
+
 
 const MyArtifacts = () => {
     const { user } = useAuth();
-    const [artifacts, SetArtifacts] = useState([]);
+    const [myArtifacts, SetMyArtifacts] = useState([]);
 
     useEffect(() => {
         fetchAllArtifacts();
@@ -13,16 +15,26 @@ const MyArtifacts = () => {
 
     const fetchAllArtifacts = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifacts/${user.email}`);
-        SetArtifacts(data);
+        SetMyArtifacts(data);
     }
 
     return (
-        <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <div className='w-11/12 mx-auto'>
             {
-                artifacts.map(artifact => <ArtifactCard
-                    key={artifact._id}
-                    artifact={artifact}
-                ></ArtifactCard>)
+                myArtifacts.length !== 0 ?
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12'>
+                        {
+                            myArtifacts.map(artifact => <MyArtifactCard
+                                key={artifact._id}
+                                artifact={artifact}
+                            ></MyArtifactCard>)
+                        }
+                    </div>
+                    :
+                    <div>
+                        <img src={sorryImage} alt="" className='mx-auto' />
+                        <h3 className='text-6xl text-[#F19100] text-center font-bold my-8'> No Data Availavble Here </h3>
+                    </div>
             }
         </div>
     );

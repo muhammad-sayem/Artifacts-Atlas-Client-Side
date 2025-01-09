@@ -31,7 +31,8 @@ const LikedArtifacts = () => {
                     </div>
                     :
                     <div>
-                        <img src={sorryImage} alt="" />
+                        <img src={sorryImage} alt="" className='mx-auto' />
+                        <h3 className='text-6xl text-[#F19100] text-center font-bold my-8'> No Data Availavble Here </h3>
                     </div>
             }
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const FAQ = () => {
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto mb-16'>
             <div className='w-1/4 mx-auto border-2 border-[#F19100] mb-6'></div>
 
             <h2 className='text-4xl text-center font-black mb-8'>FA<span className='text-[#F19100]'>Q'S </span> </h2>
