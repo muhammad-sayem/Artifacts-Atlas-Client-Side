@@ -36,18 +36,18 @@ const Register = () => {
             .catch(err => {
                 console.log(err.message);
             })
-
     }
 
     return (
-        <div>
-            <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+        <div className="w-11/12 mx-auto">
+            <div className="hero bg-black my-12 py-12">
+                <div className="hero-content flex-col lg:flex-row-reverse justify-center items-center">
 
-                        <Lottie animationData={registerLottieData}></Lottie>
+                    <div className="lg:text-left w-1/2">
+                        <Lottie animationData={registerLottieData} className="w-[600px]"></Lottie>
                     </div>
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+
+                    <div className="card bg-[#F19100] shrink-0 shadow-2xl w-1/2">
                         <h1 className=" text-center mt-4 text-5xl font-bold">Register now!</h1>
                         <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
@@ -62,7 +62,7 @@ const Register = () => {
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
 
-                                <div className="flex px-1 text-xs gap-x-1">
+                                <div className="flex px-1 text-xs gap-x-1 mt-2">
                                     <p className="flex-grow-0"> Already have an account? </p>
                                     <p className="flex-grow-0 underline"><Link to='/login'> Login </Link></p>
                                 </div>
@@ -72,7 +72,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn bg-black text-[#F19100]">Register</button>
                             </div>
                             <div className="divider">OR</div>
                             <SocialLogin></SocialLogin>

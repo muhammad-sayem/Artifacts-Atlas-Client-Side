@@ -1,18 +1,24 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthContext from '../Context/AuthContext'
+import logo from "../assets/images/artifact-icon.png"
 const Navbar = () => {
-    const { user, signOutUser } = useContext(AuthContext)
+    const { user, signOutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const handeSignOut = () => {
+        signOutUser();
+        navigate('/login');
+    }
     return (
         <div className='navbar bg-base-100 shadow-sm container w-11/12 mx-auto'>
             <div className='flex-1'>
-                <Link to='/' className='flex gap-2 items-center'>
-                    {/* <img className='w-auto h-7' src={logo} alt='' /> */}
-                    <span className='font-bold'>Artifacts Atlas</span>
+                <Link to='/' className='gap-2 items-center'>
+                    <img className='w-12 h-12 mx-auto' src={logo} alt='' />
+                    <span className='font-bold text-xl'>Artifacts Atlas</span>
                 </Link>
             </div>
             <div className='flex-none'>
-                <ul className='menu menu-horizontal px-1'>
+                <ul className='menu menu-horizontal px-1 text-md'>
                     <li>
                         <Link to='/'>Home</Link>
                     </li>
@@ -59,7 +65,7 @@ const Navbar = () => {
                             </li>
                             <li className='mt-2'>
                                 <button
-                                    onClick={signOutUser}
+                                    onClick={handeSignOut}
                                     className='bg-gray-200 block text-center'
                                 >
                                     Logout

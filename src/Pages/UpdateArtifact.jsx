@@ -3,11 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../Hooks/UseAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import LoadingSpinner from '../Components/LoadingSpinner';
 
 const UpdateArtifact = () => {
     const { user } = useAuth();
     const { id } = useParams();
-    const [artifact, setArtifact] = useState(null); // Initialize as null
+    const [artifact, setArtifact] = useState(null); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const UpdateArtifact = () => {
 
     const fetchArtifactData = async () => {
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifact/${id}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifact/${id}`, {withCredentials:true});
             setArtifact(data);
         } catch (error) {
             console.error("Error fetching artifact data:", error);
@@ -26,7 +27,7 @@ const UpdateArtifact = () => {
     if (!artifact) {
         return (
             <div className="text-center py-16">
-                <p className="text-2xl text-gray-500">Loading...</p>
+                <LoadingSpinner></LoadingSpinner>
             </div>
         );
     }
@@ -57,7 +58,7 @@ const UpdateArtifact = () => {
         console.log(formData);
 
         try {
-            await axios.put(`${import.meta.env.VITE_API_URL}/update/${id}`, formData);
+            await axios.put(`${import.meta.env.VITE_API_URL}/update/${id}`, formData, {withCredentials:true});
             form.reset();
             Swal.fire({
                 title: "New Artifact Added Successfully!!",

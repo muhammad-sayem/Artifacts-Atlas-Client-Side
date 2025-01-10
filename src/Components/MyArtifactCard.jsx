@@ -19,7 +19,7 @@ const MyArtifactCard = ({ artifact, fetchAllMyArtifacts }) => {
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete(`${import.meta.env.VITE_API_URL}/artifact/${_id}`);
+                    axios.delete(`${import.meta.env.VITE_API_URL}/artifact/${_id}`, {withCredentials:true}),
                     Swal.fire({
                         title: `${artifactName} has been deleted successfully!`,
                         icon: "success"
@@ -28,10 +28,6 @@ const MyArtifactCard = ({ artifact, fetchAllMyArtifacts }) => {
                     navigate('/artifacts');
                 }
             });
-
-
-
-
         }
         catch (err) {
             console.log(err);

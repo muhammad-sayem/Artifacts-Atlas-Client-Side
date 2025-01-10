@@ -8,8 +8,8 @@ const AboutArtifacts = () => {
                 <img src={bannerImage} alt="" className='w-full h-[400px]' />
             </div>
 
-            <div className='lg:w-1/2'>
-                <div className='w-1/3 border-2 border-[#F19100] mb-6'> </div>
+            <div className='lg:w-1/2 text-center lg:text-left'>
+                <div className='w-1/3 mx-auto lg:mx-0 border-2 border-[#F19100] mb-6'> </div>
                 <h2 className='text-3xl font-semibold mb-8'> WELCOME TO  <span className='text-[#F19100]'>ARTIFACTS ATLAS</span> </h2>
 
                 <div>

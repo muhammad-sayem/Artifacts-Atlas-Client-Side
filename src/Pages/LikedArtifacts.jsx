@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import useAuth from '../Hooks/UseAuth';
 import sorryImage from "../assets/images/sorry.png";
-import ArtifactCard from '../Components/ArtifactCard';
 import LoadingSpinner from '../Components/LoadingSpinner';
+import LikedArtifactCard from '../Components/LikedArtifactCard';
 
 const LikedArtifacts = () => {
     const { user} = useAuth();
@@ -15,7 +15,7 @@ const LikedArtifacts = () => {
     }, []);
 
     const fetchAllLikedArtifacts = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/liked-artifacts/${user.email}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/liked-artifacts/${user.email}`, {withCredentials:true});
         SetLikedArtifacts(data);
         setLoading(false);
     }
@@ -26,14 +26,15 @@ const LikedArtifacts = () => {
 
     return (
         <div className='w-11/12 mx-auto my-12'>
+            <h2 className='text-4xl text-center font-black my-8'> Liked <span className='text-[#F19100]'>Artifacts</span> </h2>
             {
                 likedArtifacts.length !== 0 ?
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                         {
-                            likedArtifacts.map(artifact => <ArtifactCard
+                            likedArtifacts.map(artifact => <LikedArtifactCard
                                 key={artifact._id}
                                 artifact={artifact}
-                            ></ArtifactCard>)
+                            ></LikedArtifactCard>)
                         }
                     </div>
                     :

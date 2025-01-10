@@ -4,13 +4,13 @@ import { FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="bg-black">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-24 w-11/12 mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-12 md:pt-16 lg:pt-24 w-11/12 mx-auto">
                 <div className="">
                     <h3 className="text-3xl font-bold mb-4 text-[#F19100]">  Artifacts Atlas </h3>
                     <p className="text-white text-lg"> Preserving history, one artifact at a time. Explore the stories of ancient civilizations and timeless treasures. Connect with us to embark on a journey through the past, and uncover the legacy of humanity. </p>
                 </div>
 
-                <div className="mx-auto">
+                <div className="lg:mx-auto">
                     <h3 className="text-3xl font-bold mb-4 text-[#F19100]"> Informations </h3>
                     <ul className="text-lg text-white">
                         <li><a href="#" className=""> About </a></li>
@@ -21,7 +21,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="text-center mb-12">
+                <div className="lg:text-center mb-12">
                     <h6 className="text-3xl font-bold text-[#F19100]"> Stay Connected</h6>
                     <p className="text-xl mb-4 text-white"> Stay Connected with us for more update </p>
                     <div className="flex justify-around text-white">

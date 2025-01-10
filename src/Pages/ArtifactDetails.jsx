@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AiFillLike } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 import useAuth from '../Hooks/UseAuth';
+import { AiFillDislike } from "react-icons/ai";
 
 const ArtifactDetails = () => {
     const { user } = useAuth();
@@ -14,9 +15,10 @@ const ArtifactDetails = () => {
 
     const fetchLikedArtifacts = async () => {
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/liked-artifacts/${user.email}`);
-            return data.map(item => item.artifactId); 
-        } 
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/liked-artifacts/${user.email}`, {withCredentials:true});
+            
+            return data.map(item => item.artifactId);
+        }
         catch (err) {
             console.error('Error fetching liked artifacts:', err);
             return [];
@@ -30,9 +32,9 @@ const ArtifactDetails = () => {
 
     const fetchArtifactData = async () => {
         try {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifact/${id}`);
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/artifact/${id}`, {withCredentials: true});
             setArtifact(data);
-        } 
+        }
         catch (err) {
             console.error('Error fetching artifact data:', err);
         }
@@ -40,13 +42,13 @@ const ArtifactDetails = () => {
 
     const checkIfLiked = async () => {
         const likedArtifacts = await fetchLikedArtifacts();
-        setLiked(likedArtifacts.includes(id)); 
+        setLiked(likedArtifacts.includes(id));
     };
 
     const handleLikeToggle = async () => {
         try {
             if (liked) {
-                await axios.post(`${import.meta.env.VITE_API_URL}/remove-like`, {artifactId: id, likedEmail: user.email});
+                await axios.post(`${import.meta.env.VITE_API_URL}/remove-like`, { artifactId: id, likedEmail: user.email });
 
                 setArtifact(prev => ({ ...prev, likes: prev.likes - 1 }));
                 Swal.fire({
@@ -65,7 +67,7 @@ const ArtifactDetails = () => {
                     discoveredAt: artifact.discoveredAt,
                     presentLocation: artifact.presentLocation,
                     adderName: artifact.adderName,
-                    adderEmail: artifact.adderEmail
+                    adderEmail: artifact.adderEmail,
                 };
                 await axios.post(`${import.meta.env.VITE_API_URL}/add-like`, likedData);
                 setArtifact(prev => ({ ...prev, likes: prev.likes + 1 }));
@@ -106,8 +108,19 @@ const ArtifactDetails = () => {
                         onClick={handleLikeToggle}
                         disabled={user.email === artifact.adderEmail}
                         className={`mt-6 btn w-1/3 text-xl font-bold ${liked ? 'bg-red-500' : 'bg-[#F19100]'}`}
+
                     >
-                        <AiFillLike /> {liked ? 'Unlike' : 'Like'}
+                        {liked ?
+                            <div className='flex items-center gap-x-2'>
+                                <AiFillDislike />
+                                <p>Dislike</p>
+                            </div>
+                            :
+                            <div className='flex items-center gap-x-2'>
+                                < AiFillLike/>
+                                Like
+                            </div>
+                        }
                     </button>
                 </div>
 
