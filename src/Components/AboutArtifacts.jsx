@@ -4,11 +4,17 @@ import bannerImage from "../assets/images/ancient artifacts.webp"
 const AboutArtifacts = () => {
     return (
         <div className='w-11/12 mx-auto lg:flex gap-x-8 space-y-4 mb-16'>
-            <div className='lg:w-1/2 flex flex-col justify-center'>
+            <div className='lg:w-1/2 flex flex-col justify-center' data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="2000">
                 <img src={bannerImage} alt="" className='w-full h-[400px]' />
             </div>
 
-            <div className='lg:w-1/2 text-center lg:text-left'>
+            <div className='lg:w-1/2 text-center lg:text-left' data-aos="fade-left"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="2000">
                 <div className='w-1/3 mx-auto lg:mx-0 border-2 border-[#F19100] mb-6'> </div>
                 <h2 className='text-3xl font-semibold mb-8'> WELCOME TO  <span className='text-[#F19100]'>ARTIFACTS ATLAS</span> </h2>
 

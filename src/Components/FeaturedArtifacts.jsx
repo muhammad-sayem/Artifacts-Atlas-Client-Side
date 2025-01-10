@@ -2,9 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ArtifactCard from "./ArtifactCard";
 import { Link } from "react-router-dom";
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 const FeaturedArtifacts = () => {
     const [artifacts, SetArtifacts] = useState([]);
+
+    const [featuredArtifactsText] = useTypewriter({
+        words: ['Artifacts'],
+        loop: 0
+    })
 
     useEffect(() => {
         fetchAllArtifacts();
@@ -16,8 +22,13 @@ const FeaturedArtifacts = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto py-10'>
-            <h2 className='text-4xl text-center font-black'> Featured <span className='text-[#F19100]'>Artifacts</span> </h2>
+        <div className='w-11/12 mx-auto py-10' data-aos="fade-up"
+        data-aos-duration="2000">
+
+            <h2 className='text-4xl text-center font-black'> 
+                <span className="text-black"> Featured </span>
+                <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor></Cursor> </span>
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                 {

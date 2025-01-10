@@ -1,10 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ArtifactCard from '../Components/ArtifactCard';
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 const Artifacts = () => {
     const [artifacts, SetArtifacts] = useState([]);
     const [search, setSearch] = useState("");
+
+    const [featuredArtifactsText] = useTypewriter({
+        words: ['Artifacts'],
+        loop: 0
+    })
 
     useEffect(() => {
         const fetchAllArtifacts = async () => {
@@ -14,11 +20,12 @@ const Artifacts = () => {
         fetchAllArtifacts();
     }, [search]);
 
-
-
     return (
         <div className='py-10 w-11/12 mx-auto'>
-            <h2 className='text-4xl text-center font-black mb-8'> All <span className='text-[#F19100]'>Artifacts</span> </h2>
+            <h2 className='text-4xl text-center font-black mb-8'>
+                <span className="text-black"> All </span>
+                <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor></Cursor> </span>
+            </h2>
 
             <div className='flex items-center p-1 overflow-hidden rounded-lg focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300 border-4 border-[#F19100] w-1/2 mx-auto'>
                 <input
@@ -36,8 +43,8 @@ const Artifacts = () => {
                 </button>
             </div>
 
-            <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-
+            <div className='w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12' data-aos="fade-up"
+                data-aos-duration="3000">
                 {
                     artifacts.map(artifact => <ArtifactCard
                         key={artifact._id}

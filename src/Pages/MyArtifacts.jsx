@@ -4,12 +4,18 @@ import useAuth from "../Hooks/UseAuth";
 import MyArtifactCard from "../Components/MyArtifactCard";
 import sorryImage from "../assets/images/sorry.png"
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 
 const MyArtifacts = () => {
     const { user } = useAuth();
     const [myArtifacts, SetMyArtifacts] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const [featuredArtifactsText] = useTypewriter({
+        words: ['Artifacts'],
+        loop: 0
+    })
 
     useEffect(() => {
         fetchAllMyArtifacts();
@@ -26,8 +32,12 @@ const MyArtifacts = () => {
     }
 
     return (
-        <div className='w-11/12 mx-auto'>
-            <h2 className='text-4xl text-center font-black my-8'> My <span className='text-[#F19100]'>Artifacts</span> </h2>
+        <div className='w-11/12 mx-auto' data-aos="fade-up"
+        data-aos-duration="3000">
+            <h2 className='text-4xl text-center font-black my-8'> 
+                <span className="text-black"> My </span>
+                <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor></Cursor> </span>
+            </h2>
             {
                 myArtifacts.length !== 0 ?
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12'>

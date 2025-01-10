@@ -13,9 +13,9 @@ const ArtifactCard = ({ artifact }) => {
                         className="rounded-xl h-[300px] w-full" />
                 </figure>
 
-                <div className="card-body p-5 text-center">
+                <div className="card-body p-5">
                     <h2 className="font-extrabold text-xl lg:text-2xl"> {artifactName} </h2>
-                    <p>{`${historicalContext.slice(0, 100)}...`}</p>
+                    <p>{`${historicalContext.slice(0, 105)}...`}</p>
                     <p className='text-md lg:text-lg font-bold'> Present Location: {presentLocation} </p>
                     <p className='text-lg font-bold'> Likes: {likes} </p>
                     <Link to={`/details/${_id}`}>
