@@ -48,11 +48,11 @@ const Login = () => {
             <div className="w-11/12 mx-auto hero bg-black py-12">
                 <div className="hero-content flex-col lg:flex-row-reverse">
 
-                    <div className="text-center lg:text-left w-1/2">
-                        <Lottie animationData={loginLottieData} className="w-[600px]"></Lottie>
+                    <div className="text-center lg:text-left lg:w-1/2">
+                        <Lottie animationData={loginLottieData} className="lg:w-[600px]"></Lottie>
                     </div>
 
-                    <div className="card bg-[#F19100] shrink-0 shadow-2xl w-1/2">
+                    <div className="card bg-[#F19100] shrink-0 shadow-2xl lg:w-1/2">
                         <h1 className=" text-center mt-4 text-5xl font-bold">Login now!</h1>
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">

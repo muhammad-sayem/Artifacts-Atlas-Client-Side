@@ -14,7 +14,7 @@ const Navbar = () => {
             <div className='flex-1'>
                 <Link to='/' className='gap-2 items-center'>
                     <img className='w-12 h-12 mx-auto' src={logo} alt='' />
-                    <span className='font-bold text-xl'>Artifacts Atlas</span>
+                    <span className='font-bold text-md md:text-xl'>Artifacts Atlas</span>
                 </Link>
             </div>
             <div className='flex-none'>
