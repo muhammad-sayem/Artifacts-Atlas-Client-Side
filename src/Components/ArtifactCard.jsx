@@ -10,7 +10,7 @@ const ArtifactCard = ({ artifact }) => {
                     <img
                         src={artifactImage}
                         alt="Image of the artifacts"
-                        className="rounded-xl h-[300px] w-full" />
+                        className="rounded-xl h-[250px] w-full" />
                 </figure>
 
                 <div className="card-body p-5">
