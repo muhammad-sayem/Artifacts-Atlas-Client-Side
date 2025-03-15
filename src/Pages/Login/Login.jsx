@@ -45,7 +45,7 @@ const Login = () => {
 
     return (
         <div className="my-12">
-            <div className="w-11/12 mx-auto hero bg-black py-12">
+            <div className="w-11/12 mx-auto hero bg-black py-12 rounded-xl">
                 <div className="hero-content flex-col lg:flex-row-reverse">
 
                     <div className="text-center lg:text-left lg:w-1/2">
@@ -53,33 +53,33 @@ const Login = () => {
                     </div>
 
                     <div className="card bg-[#F19100] shrink-0 shadow-2xl lg:w-1/2">
-                        <h1 className=" text-center mt-4 text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-center mt-4 text-5xl font-bold dark:text-black">Login now!</h1>
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Email</span>
+                                    <span className="label-text dark:text-black dark:font-bold">Email</span>
                                 </label>
                                 <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text dark:text-black dark:font-bold">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
 
                                 <div className="flex px-1 text-xs gap-x-1 mt-2">
-                                    <p className="flex-grow-0"> Don't have account? </p>
-                                    <p className="flex-grow-0 underline"><Link to='/register'> Register </Link></p>
+                                    <p className="flex-grow-0 dark:text-black dark:font-bold"> Don't have account? </p>
+                                    <p className="flex-grow-0 underline dark:text-black dark:font-bold"><Link to='/register'> Register </Link></p>
                                 </div>
 
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link link-hover dark:text-black dark:font-bold ">Forgot password?</a>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-black text-[#F19100]">Login</button>
+                                <button className="btn bg-black dark:font-bold text-[#F19100] text-xl">Login</button>
                             </div>
-                            <div className="divider">OR</div>
+                            <div className="divider dark:text-black dark:font-bold">OR</div>
                             <SocialLogin></SocialLogin>
                         </form>
                     </div>

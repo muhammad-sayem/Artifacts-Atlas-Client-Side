@@ -33,8 +33,8 @@ const LikedArtifacts = () => {
     return (
         <div className='w-11/12 mx-auto my-12' data-aos="fade-up"
             data-aos-duration="3000">
-            <h2 className='text-4xl text-center font-black'>
-                <span className="text-black"> Liked </span>
+            <h2 className='text-4xl text-center font-black mb-4'>
+                <span className="text-black dark:text-white"> Liked </span>
                 <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor></Cursor> </span>
             </h2>
 

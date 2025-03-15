@@ -14,10 +14,10 @@ const Navbar = () => {
             <div className='flex-1'>
                 <Link to='/' className='gap-2 items-center'>
                     <img className='w-12 h-12 mx-auto' src={logo} alt='' />
-                    <span className='font-bold text-md md:text-xl'>Artifacts Atlas</span>
+                    <span className='font-bold text-md md:text-xl dark:text-white'>Artifacts Atlas</span>
                 </Link>
             </div>
-            <div className='flex-none'>
+            <div className='flex-none dark:text-white'>
                 <ul className='menu menu-horizontal px-1 text-md'>
                     <li>
                         <Link to='/'>Home</Link>
@@ -66,7 +66,7 @@ const Navbar = () => {
                             <li className='mt-2'>
                                 <button
                                     onClick={handeSignOut}
-                                    className='bg-gray-200 block text-center'
+                                    className='bg-gray-200 block text-center dark:bg-black dark:text-white dark:font-bold'
                                 >
                                     Logout
                                 </button>

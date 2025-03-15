@@ -25,8 +25,8 @@ const FeaturedArtifacts = () => {
         <div className='w-11/12 mx-auto py-10' data-aos="fade-up"
         data-aos-duration="2000">
 
-            <h2 className='text-4xl text-center font-black'> 
-                <span className="text-black"> Featured </span>
+            <h2 className='text-4xl text-center font-black dark:mb-6'> 
+                <span className="text-black dark:text-white"> Featured </span>
                 <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor></Cursor> </span>
             </h2>
 
@@ -41,7 +41,7 @@ const FeaturedArtifacts = () => {
 
             <div className="text-center">
                 <Link to='/artifacts'>
-                    <button className="btn w-full bg-[#F19100] text-lg font-bold ">View All</button>
+                    <button className="btn w-full bg-[#F19100] text-lg font-bold dark:text-black dark:border-2 dark:border-black">View All</button>
                 </Link>
             </div>
 

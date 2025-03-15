@@ -8,7 +8,9 @@ const Home = () => {
         <div>
             <Carousel></Carousel>
             <FeaturedArtifacts></FeaturedArtifacts>
-            <AboutArtifacts></AboutArtifacts>
+            <div id='about-section'>
+                <AboutArtifacts></AboutArtifacts>
+            </div>
             <FAQ></FAQ>
         </div>
     );

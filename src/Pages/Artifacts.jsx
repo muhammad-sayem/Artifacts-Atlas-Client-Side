@@ -26,7 +26,7 @@ const Artifacts = () => {
     return (
         <div className='py-10 mx-auto min-h-screen'>
             <h2 className='text-4xl text-center font-black mb-8'>
-                <span className="text-black"> All </span>
+                <span className="text-black dark:text-white"> All </span>
                 <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor /></span>
             </h2>
 
@@ -36,18 +36,18 @@ const Artifacts = () => {
                         className='flex-grow px-6 py-3 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
                         type='text'
                         name='search'
-                        placeholder='Enter Artifact Name'
+                        placeholder='Enter Artifact Name to Search'
                         aria-label='Enter Artifact Name'
                         onChange={(e) => setSearch(e.target.value)}
                         value={search}
                     />
-                    <button className='px-6 py-3 text-sm tracking-wider font-black uppercase transition-colors duration-300 transform bg-[#F19100] rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
+                    {/* <button className='px-6 py-3 text-sm tracking-wider font-black uppercase transition-colors duration-300 transform bg-[#F19100] rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none dark:text-black'>
                         Search
-                    </button>
+                    </button> */}
                 </div>
 
                 <select
-                    className='p-4 border-2 border-[#F19100] rounded-lg text-gray-700 outline-none focus:ring focus:ring-[#F19100] focus:ring-opacity-50 w-full md:w-1/4 text-xl font-bold'
+                    className='p-4 border-2 border-[#F19100] rounded-lg text-gray-700 outline-none focus:ring focus:ring-[#F19100] focus:ring-opacity-50 w-full md:w-1/4 text-lg font-bold dark:text-[#F19100]'
                     onChange={(e) => setSort(e.target.value)}
                     value={sort}
                 >

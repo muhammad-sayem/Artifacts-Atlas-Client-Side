@@ -17,7 +17,7 @@ const Slide = ({ image, text }) => {
                     <br />
                     <NavLink
                         to='/artifacts'
-                        className='w-full px-5 py-4 mt-4 text-lg font-semibold text-white capitalize transition-colors duration-300 transform bg-[#F19100] rounded-md lg:w-auto hover:bg-[#f6a62e] focus:outline-none focus:bg-[#f6a62e]'
+                        className='w-full px-5 py-4 mt-4 text-lg font-bold text-white capitalize transition-colors duration-300 transform bg-[#F19100] rounded-md lg:w-auto hover:bg-[#f6a62e] focus:outline-none focus:bg-[#f6a62e] dark:text-white'
                     >
                         View All Artifacts
                     </NavLink>

@@ -87,12 +87,12 @@ const ArtifactDetails = () => {
     };
 
     return (
-        <div className='w-2/3 mx-auto mb-8'>
-            <h2 className='text-4xl text-center font-black my-8'>
+        <div className='w-2/3 mx-auto mb-8 rounded-xl dark:border-2 border-[#F19100]'>
+            <h2 className='text-4xl text-center font-black dark:text-white my-8'>
                 Details of <span className='text-[#F19100]'>{artifact.artifactName}</span>
             </h2>
 
-            <div className='flex gap-x-8 p-12 shadow-2xl'>
+            <div className='flex gap-x-8 p-12 shadow-2xl dark:text-white'>
                 <div className='w-1/2'>
                     <h2 className='text-4xl font-extrabold text-[#F19100]'>{artifact.artifactName}</h2>
                     <p className='text-2xl font-bold mb-6'>Artifact Type: {artifact.artifactType}</p>
@@ -102,7 +102,7 @@ const ArtifactDetails = () => {
                     <p className='text-lg font-bold'>Discovered At: {artifact.discoveredAt}</p>
                     <p className='text-lg font-bold'>Added By: {artifact.adderName}</p>
                     <p className='text-lg font-bold'>Added By (Email): {artifact.adderEmail}</p>
-                    <p className='text-lg font-bold'>Likes: {artifact.likes}</p>
+                    <p className='text-lg font-bold dark:text-[#F19100]'>Likes: {artifact.likes}</p>
 
                     <button
                         onClick={handleLikeToggle}
@@ -111,12 +111,12 @@ const ArtifactDetails = () => {
 
                     >
                         {liked ?
-                            <div className='flex items-center gap-x-2'>
+                            <div className='flex items-center gap-x-2 dark:text-black'>
                                 <AiFillDislike />
                                 <p>Dislike</p>
                             </div>
                             :
-                            <div className='flex items-center gap-x-2'>
+                            <div className='flex items-center gap-x-2 dark:text-black'>
                                 < AiFillLike/>
                                 Like
                             </div>

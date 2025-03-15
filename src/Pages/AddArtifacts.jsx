@@ -65,8 +65,8 @@ const AddArtifacts = () => {
     }
 
     return (
-        <div className="bg-black py-16 my-8 w-10/12 mx-auto">
-            <h2 className="text-4xl text-center text-[#F19100] font-bold mb-8"> Add a Artifact </h2>
+        <div className="bg-black py-16 my-8 w-10/12 mx-auto rounded-xl">
+            <h2 className="text-4xl text-center text-[#F19100] font-bold mb-8"> Add an Artifact </h2>
 
             <form onSubmit={handleSubmit}>
                 <div className="w-4/5 mx-auto">
@@ -194,7 +194,7 @@ const AddArtifacts = () => {
 
 
                 <div className="w-4/5 mx-auto">
-                    <button className="btn w-full bg-[#F19100] text-white text-xl font-bold"> Add Artifact </button>
+                    <button className="btn w-full bg-[#F19100] text-white text-xl font-bold dark:text-black"> Add Artifact </button>
                 </div>
             </form>
         </div>

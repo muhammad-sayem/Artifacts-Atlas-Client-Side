@@ -5,9 +5,9 @@ const FAQ = () => {
         <div className='w-11/12 mx-auto mb-16'>
             <div className='w-1/4 mx-auto border-2 border-[#F19100] mb-6'></div>
 
-            <h2 className='text-4xl text-center font-black mb-8'>FA<span className='text-[#F19100]'>Q'S </span> </h2>
+            <h2 className='text-4xl text-center font-black mb-8 dark:text-white'>FA<span className='text-[#F19100]'>Q'S </span> </h2>
 
-            <div className="collapse collapse-arrow bg-[#F19100] mb-2" data-aos="fade-up"
+            <div className="collapse collapse-arrow dark:text-black bg-[#F19100] mb-2" data-aos="fade-up"
                 data-aos-duration="3000">
                 <input type="radio" name="my-accordion-2" defaultChecked />
                 <div className="collapse-title text-xl font-bold"> What is the purpose of this website?</div>
@@ -16,7 +16,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-arrow bg-[#F19100] mb-2" data-aos="fade-up"
+            <div className="collapse collapse-arrow bg-[#F19100] mb-2 dark:text-black" data-aos="fade-up"
                 data-aos-duration="3000">
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-bold">Can I contribute information or artifacts to the collection?</div>
@@ -25,7 +25,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-arrow bg-[#F19100] mb-2" data-aos="fade-up"
+            <div className="collapse collapse-arrow bg-[#F19100] mb-2 dark:text-black" data-aos="fade-up"
                 data-aos-duration="3000">
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-bold">Are the artifacts on display authentic?
@@ -35,7 +35,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-arrow bg-[#F19100] mb-2" data-aos="fade-up"
+            <div className="collapse collapse-arrow bg-[#F19100] mb-2 dark:text-black" data-aos="fade-up"
                 data-aos-duration="3000">
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-bold"> How can I visit the physical location of these artifacts
@@ -45,7 +45,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-arrow bg-[#F19100] mb-2" data-aos="fade-up"
+            <div className="collapse collapse-arrow bg-[#F19100] mb-2 dark:text-black" data-aos="fade-up"
                 data-aos-duration="3000">
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-bold">  Are there educational resources available for students or researchers?
@@ -55,7 +55,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div className="collapse collapse-arrow bg-[#F19100] mb-2" data-aos="fade-up"
+            <div className="collapse collapse-arrow bg-[#F19100] mb-2 dark:text-black" data-aos="fade-up"
                 data-aos-duration="3000">
                 <input type="radio" name="my-accordion-2" />
                 <div className="collapse-title text-xl font-bold"> How do I know if an artifact has been ethically sourced?

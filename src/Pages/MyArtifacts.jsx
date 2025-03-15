@@ -35,7 +35,7 @@ const MyArtifacts = () => {
         <div className='w-11/12 mx-auto' data-aos="fade-up"
         data-aos-duration="3000">
             <h2 className='text-4xl text-center font-black my-8'> 
-                <span className="text-black"> My </span>
+                <span className="text-black dark:text-white"> My </span>
                 <span className="text-[#F19100]"> {featuredArtifactsText}<Cursor></Cursor> </span>
             </h2>
             {
