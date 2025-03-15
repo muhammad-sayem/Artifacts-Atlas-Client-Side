@@ -13,8 +13,10 @@ const Navbar = () => {
         <div className='navbar sticky top-0 z-10 bg-base-100 shadow-sm container mx-auto'>
             <div className='flex-1'>
                 <Link to='/' className='gap-2 items-center'>
-                    <img className='w-12 h-12 mx-auto' src={logo} alt='' />
-                    <span className='font-bold text-md md:text-xl dark:text-white'>Artifacts Atlas</span>
+                    <div className='flex items-center gap-x-2'>
+                        <img className='w-12 h-12 mx-auto' src={logo} alt='' />
+                        <span className='font-bold text-md md:text-xl dark:text-white'>Artifacts Atlas</span>
+                    </div>
                 </Link>
             </div>
             <div className='flex-none dark:text-white'>
