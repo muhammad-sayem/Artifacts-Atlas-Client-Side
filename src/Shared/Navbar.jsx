@@ -10,7 +10,7 @@ const Navbar = () => {
         navigate('/login');
     }
     return (
-        <div className='navbar sticky top-0 z-10 bg-base-100 shadow-sm container mx-auto'>
+        <div className='navbar fixed top-0 left-0 z-20 w-full bg-white px-4 md:px-6 lg:px-8 shadow-md py-4'>
             <div className='flex-1'>
                 <Link to='/' className='gap-2 items-center'>
                     <div className='flex items-center gap-x-2'>

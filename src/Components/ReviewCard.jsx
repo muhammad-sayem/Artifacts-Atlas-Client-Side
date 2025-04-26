@@ -1,13 +1,13 @@
 import React from 'react';
-import reviewer1 from "../assets/images/reviewer1.jpg";
-import reviewer2 from "../assets/images/reviewer2.jpg";
+import reviewer1 from "../assets/images/reviewer1.webp";
+import reviewer2 from "../assets/images/reviewer2.webp";
 import reviewer3 from "../assets/images/reviewer3.jpg";
 import { FaStar, FaRegStarHalfStroke, FaRegStar } from "react-icons/fa6";
 
 const ReviewCard = () => {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-            <div className='shadow-xl p-8 dark:border-2 border-[#F19100]'>
+            <div className='shadow-xl p-8 dark:border-2 border-[#F19100]' data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="2000">
                 <div className='flex justify-center'>
                     <img src={reviewer1} className='w-16 h-16 rounded-full' alt="" />
                 </div>
@@ -27,7 +27,10 @@ const ReviewCard = () => {
 
             {/* ----------------- */}
 
-            <div className='shadow-xl p-8 dark:border-2 border-[#F19100]'>
+            <div className='shadow-xl p-8 dark:border-2 border-[#F19100]' data-aos="fade-up"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="2000">
                 <div className='flex justify-center'>
                     <img src={reviewer2} className='w-16 h-16 rounded-full' alt="" />
                 </div>
@@ -47,7 +50,10 @@ const ReviewCard = () => {
 
             {/* -------------- */}
 
-            <div className='shadow-xl p-8 dark:border-2 border-[#F19100]'>
+            <div className='shadow-xl p-8 dark:border-2 border-[#F19100]' data-aos="fade-left"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="2000">
                 <div className='flex justify-center'>
                     <img src={reviewer3} className='w-16 h-16 rounded-full' alt="" />
                 </div>

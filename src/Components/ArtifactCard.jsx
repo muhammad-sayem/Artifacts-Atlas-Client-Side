@@ -19,7 +19,7 @@ const ArtifactCard = ({ artifact }) => {
                     <p className='text-md lg:text-lg font-bold dark:text-white'> Present Location: {presentLocation} </p>
                     <p className='text-lg font-bold dark:text-[#F19100]'> Likes: {likes} </p>
                     <Link to={`/details/${_id}`}>
-                        <button className="btn bg-[#F19100] text-lg font-bold text-md dark:text-black dark:border-2 dark:border-black">View Details</button>
+                        <button className="btn bg-[#F19100] text-lg font-bold text-md dark:text-black dark:hover:text-[#F19100] dark:border-2 dark:border-black">View Details</button>
                     </Link>
                 </div>
             </div>

@@ -22,7 +22,7 @@ const Artifacts = () => {
     }, [search, sort]);
 
     console.log(sort);
-
+    
     return (
         <div className='py-10 mx-auto min-h-screen'>
             <h2 className='text-4xl text-center font-black mb-8'>

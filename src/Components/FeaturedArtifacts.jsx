@@ -41,7 +41,7 @@ const FeaturedArtifacts = () => {
 
             <div className="text-center">
                 <Link to='/artifacts'>
-                    <button className="btn w-full bg-[#F19100] text-lg font-bold dark:text-black dark:border-2 dark:border-black">View All</button>
+                    <button className="btn w-full bg-[#F19100] text-lg font-bold dark:text-black dark:hover:text-[#F19100] dark:border-2 dark:border-black">View All</button>
                 </Link>
             </div>
 
